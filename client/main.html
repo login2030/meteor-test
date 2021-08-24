@@ -1,0 +1,41 @@
+<head>
+    <title>meteor-test</title>
+</head>
+
+<body>
+    {{>Wrapper name=123}}
+</body>
+
+<template name="Wrapper">
+    {{#each item in list}}
+        {{#BlazeDropdown
+            itemClass="321"
+            contentClass="456"
+        }}
+            {{#BlazeDropdownItem}}
+                <button>open content</button>
+            {{/BlazeDropdownItem}}
+            {{#BlazeDropdownContent}}
+                <h1>Simple content</h1>
+            {{/BlazeDropdownContent}}
+        {{/BlazeDropdown}}
+    {{/each}}
+</template>
+
+<template name="BlazeDropdown">
+    <div class="dropdown {{class}}">
+        {{> Template.contentBlock state=state}}
+    </div>
+</template>
+
+<template name="BlazeDropdownItem">
+    <div data-action="toggle-dropdown-content" class='dropdown__item {{class}}'>
+        {{> Template.contentBlock}}
+    </div>
+</template>
+
+<template name="BlazeDropdownContent">
+    <div class='dropdown__container {{class}} {{isOpenClass}}'>
+        {{> Template.contentBlock}}
+    </div>
+</template>

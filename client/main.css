@@ -1,0 +1,11 @@
+.article {
+    background-color: #eee;
+}
+
+.dropdown__container {
+    visibility: hidden;
+}
+
+.-visible {
+    visibility: visible;
+}
